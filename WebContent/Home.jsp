@@ -13,29 +13,6 @@
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
    
-   <script type="text/javascript">
-	function checkMe()
-	{
-		if(document.getElementById('ch1').checked==false && document.getElementById('ch2').checked==false && document.getElementById('ch3').checked==false)
-			{
-			alert('Please select atleast one criteria for stops');
-			return false;
-			}
-		
-		if(document.getElementById('dac').value=='' || document.getElementById('aac').value=='')
-			{
-			alert('Please enter both departure and arrival airport codes');
-			return false;
-			}
-		
-		if(document.getElementById('dac').value==document.getElementById('aac').value)
-		{
-		alert('Please enter different departure and arrival airport codes');
-		return false;
-		}
-		
-	}
-   </script>
 </head>
 <body>
 
