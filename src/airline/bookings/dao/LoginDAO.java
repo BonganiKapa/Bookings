@@ -16,9 +16,9 @@ public class LoginDAO {
 		
 		boolean status = false;
 		
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		
-		try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3360/onlinebooking?useSSL=false", "root", "");
+		try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinebooking?useTimezone=true&serverTimezone=UTC", "root", "");
 				PreparedStatement ps = con.prepareStatement(sql)){
 			
 			ps.setString(1, loginBean.getEmail());

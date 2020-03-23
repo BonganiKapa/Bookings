@@ -12,14 +12,14 @@ public class AirportDAO {
 	public int registerAirport(AirportBean airport) throws ClassNotFoundException{
 		
 		String sql = "INSERT INTO airportdetails" +
-				"(name, city, province, aiport_code, iata) VALUES " +
+				"(name, city, province, airport_code, iata) VALUES " +
 				"(?,?,?,?,?);";
 		
 		int result = 0;
 		
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		
-		try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinebooking?useSSL=false", "root", "");
+		try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinebooking?useTimezone=true&serverTimezone=UTC", "root", "");
 				PreparedStatement ps = con.prepareStatement(sql)){
 			
 			ps.setString(1, airport.getAirportName());

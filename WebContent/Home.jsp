@@ -16,17 +16,22 @@
 </head>
 <body>
 
-    <div id="wrapper" action="<%=request.getContextPath()%>/Home" method="get">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span name = "login" class="icon-bar" href = "Login.jsp">Login</span>
-                    <span name = "register" class="icon-bar" href = "Registration.jsp">Register</span>
-                    <span class="icon-bar">Search</span>
-                </button>
-                <a class="navbar-brand" href="index.html">Travel</a> 
-            </div>
+    <div class="nav-wrapper">
+            <nav id="site-navigation" class="container-fluid navbar navbar-inverse" data-spy="affix" data-offset-top="160" style="margin:auto;">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#top" style="font-size: 30px;">FLIGHTS<b></b></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href = "FlightSearch.jsp">Bookings</a>
+                    <li><a href = "Login.jsp">Login</a>
+                    <li><a href = "Register.jsp">Register</a>
+                    <li><a href = "review.jsp">Reviews</a>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </nav>
+        </div>
+        <div class = "section1">
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;

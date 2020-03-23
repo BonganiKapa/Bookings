@@ -48,7 +48,7 @@ pageEncoding="ISO-8859-1"%>
 
 <option value="-2">-Select Seat-</option>
 
-<option value="winrigh">Window(Left)</option>
+<option value="winright">Window(Left)</option>
 
 <option value="winleft">Window(Right)</option>
 

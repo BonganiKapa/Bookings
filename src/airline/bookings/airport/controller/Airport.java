@@ -7,35 +7,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Airport
- */
+import airline.bookings.airport.bean.AirportBean;
+import airline.bookings.airport.dao.AirportDAO;
+
+
 @WebServlet("/Airport")
 public class Airport extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Airport() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+    
+	private AirportDAO airportDao;
+	
+	public void init() {
+		airportDao = new AirportDAO();
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String name = request.getParameter("name");
+		String city = request.getParameter("city");
+		String province = request.getParameter("province");
+		String code = request.getParameter("code");
+		String iata = request.getParameter("iata");
+		
+		AirportBean airport = new AirportBean();
+		airport.setAirportName(name);
+		airport.setCity(city);
+		airport.setProvince(province);
+		airport.setCode(code);
+		airport.setIata(iata);
+		
+		try {
+			airportDao.registerAirport(airport);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
