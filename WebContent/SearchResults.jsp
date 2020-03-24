@@ -1,9 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-    import="java.sql.*"
-    import="java.io.*"
-    %>
-
 <%@ include file = "Home.jsp" %>
 
 <!DOCTYPE HTML>
@@ -14,7 +8,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <title>Advanced Flight Search</title>
+        <title>Flight Search Results</title>
         <style>
             .affix {top: 0; width: 100%;}
             .affix + .container-fluid {padding-top: 50px;}
@@ -53,7 +47,7 @@
         <div class="nav-wrapper">
             <nav id="site-navigation" class="container-fluid navbar navbar-inverse" data-spy="affix" data-offset-top="160" style="margin:auto;">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#top" style="font-size: 30px;"><b>Movie</b></a>
+                    <a class="navbar-brand" href="#top" style="font-size: 30px;"><b>FLights</b></a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href = "booking.jsp">Bookings</a>
@@ -65,25 +59,77 @@
                 </ul>
             </nav>
         </div>
+        <div class = "section1">
+        <table align="center">
+        <%
+            List flightlist = new ArrayList();
+            movielist = (ArrayList)request.getAttribute("flightlist");
+            if(flightlist != null && flightlist.size() > 0) {
 
-        <section id="section1" class="container-fluid">
-            <legend><h1 style="text-align: center;">Advanced search</h1></legend>
+        %>
+        <h2 align="center">Result</h2>
 
-            <form action="SearchMovie" method="post">
-                    <div class="form-group">
-                        <label for="searchType">Search by: <input type="hidden" class="form-control add" required></label>
-                            <select name="searchType">
-                                <option value = "date">Date & Time:</option>
-                                <option value = "airport">Airport:</option>
-                                <option value = "flightName">Flight Name:</option>
-                            </select>
-                        <input type = "submit" value = "Search">
-                    </div>
-                    <div class="form-group">
-                    <label for="query">Search term <input type="text" class="form-control add" name="search" placeholder="search" /></label>
-                    </div>
-                </form>
+        <tr>
 
+            <th>Client Name:</th>
 
-</body>
+            <th>Flight Name:</th>
+
+            <th>Flight Duration:</th>
+
+            <th>Flight Number:</th>
+
+            <th>Flight Date:</th>
+
+            <th>Departure:</th>
+
+            <th>Arrival:</th>
+
+        </tr>
+
+        <%
+
+        for(int i=0;i<flightlist.size();i++){
+
+        List flight=(List)flightlist.get(i);
+
+        %>
+
+        <tr>
+
+        <td><%=flight.get(1) %></td>
+
+        <td><%=flight.get(2) %></td>
+
+        <td><%=flight.get(3) %></td>
+
+        <td><%=flight.get(4) %></td>
+
+        <td><%=flight.get(5) %></td>
+
+        <td><%=flight.get(6) %></td>
+
+        <td><%=flight.get(7) %></td>
+
+        </tr>
+
+        <%
+
+            }
+
+        }else{
+
+        %>
+        <tr>
+
+            <td> No records found </td>
+
+        </tr>
+
+        <%}%>
+
+        </table>
+        </div>
+    </body>
+
 </html>

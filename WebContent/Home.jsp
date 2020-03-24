@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-      <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="Assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="Assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="Assets/css/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   
-</head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>Movie</title>
+        <style>
+            .affix {top: 0; width: 100%;}
+            .affix + .container-fluid {padding-top: 50px;}
+            .nav-wrapper {min-height: 50px;}
+            #section1 {padding-top: 50px; min-height: 550px; background-color: #EFEFEF; border-bottom: 1px solid #D6D6D6;}
+            #section2 {padding-top: 50px; min-height: 1000px; background-color: #EFEFEF; border-bottom: 1px solid #D6D6D6;}
+            #section3 {padding-top: 20px; min-height: 400px; background-color: #EFEFEF; border-bottom: 1px solid #D6D6D6;}
+            .add {width:600px;}
+        </style>
+        <script>
+            //Smooth Scrolling
+            $.fn.scrollBottom = function() { 
+                return $(document).height() - this.scrollTop() - this.height(); 
+            };
+            window.onscroll = function() {myFunction()};
+            $(document).ready(function(){
+                $("a").on('click', function(event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+                        var hash = this.hash;
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 400, function(){
+                            window.location.hash = hash;
+                        });
+                    }
+                });
+            });
+        </script>
+    </head>
 <body>
 
     <div class="nav-wrapper">

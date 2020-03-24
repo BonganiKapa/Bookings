@@ -29,7 +29,7 @@
     </tr>
     <tr>
      <td>IATA:</td>
-     <td><input type="text" name="iata" placeholder = "IATA" required = "required"/></td>
+     <td><input type="text" name="iata" placeholder = "IATA"/></td>
     </tr>
    </table>
    <td borderColor = #0DA6EE >
