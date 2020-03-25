@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <title>Movie</title>
+        <title>Home</title>
         <style>
             .affix {top: 0; width: 100%;}
             .affix + .container-fluid {padding-top: 50px;}
@@ -42,12 +42,12 @@
     <div class="nav-wrapper">
             <nav id="site-navigation" class="container-fluid navbar navbar-inverse" data-spy="affix" data-offset-top="160" style="margin:auto;">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#top" style="font-size: 30px;">FLIGHTS<b></b></a>
+                    <a class="navbar-brand" href="#top" style="font-size: 30px;">FLIGHT STARS<b></b></a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href = "FlightSearch.jsp">Bookings</a>
                     <li><a href = "Login.jsp">Login</a>
-                    <li><a href = "Register.jsp">Register</a>
+                    <li><a href = "Registration.jsp">Register</a>
                     <li><a href = "review.jsp">Reviews</a>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -73,19 +73,19 @@ font-size: 16px;"> Welcome Guest &nbsp; </div>
                     <div class="carousel-inner">
                         <div class="item active">
 
-                            <img src="assets/img/aa.jpg" alt="" />
+                            <img src="Assets/imgs/airplane.jpg" alt="" />
                             <div class="carousel-caption" >
                                 <h4 class="back-light"></h4>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="Assets/images/aa1.jpg" alt="" />
+                            <img src="Assets/imgs/airplane1.jpg" alt="" />
                             <div class="carousel-caption ">
                                 <h4 class="back-light"></h4>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="Assets/images/sw1.jpg" alt="" />
+                            <img src="Assets/imgs/airplane2.jpg" alt="" />
                             <div class="carousel-caption ">
                                 <h4 class="back-light"></h4>
                             </div>
@@ -117,10 +117,11 @@ font-size: 16px;"> Welcome Guest &nbsp; </div>
                     <div class="col-md-12">
                      <h2>Find Flights between two airports</h2>  
                                                                       
-                        <h4>Enter Departure Airport Code :</h4> &nbsp;
+                        <h4>Enter Departure Airport:</h4> &nbsp;
                         <input type="text" name="dac" id="dac" />
-                        <h4>Enter Arrival Airport Code :</h4> &nbsp;
+                        <h4>Enter Arrival Airport:</h4> &nbsp;
                         <input type="text" name="aac" id="aac" />
+                       
                         
                         <br />
                         &nbsp;
@@ -144,7 +145,10 @@ font-size: 16px;"> Welcome Guest &nbsp; </div>
                 </form>
                 
                 <br />
-                
+<div class = "row"> 
+ <h4>Advanced Serach</h4>
+                        <a href="FlightSearch.jsp" class="btn btn-danger square-btn-adjust">Advanced Search</a>
+</div>               
                 
 
 

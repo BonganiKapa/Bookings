@@ -41,5 +41,7 @@ public class Login extends HttpServlet {
 		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		
+		response.sendRedirect("Home.jsp");
 	}
 }

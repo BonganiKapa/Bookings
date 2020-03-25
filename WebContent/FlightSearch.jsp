@@ -4,7 +4,6 @@
     import="java.io.*"
     %>
 
-<%@ include file = "Home.jsp" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -49,16 +48,15 @@
         <%
         // Show username on page
         %>
-        <%@ include file = "Home.jsp" %>
         <div class="nav-wrapper">
             <nav id="site-navigation" class="container-fluid navbar navbar-inverse" data-spy="affix" data-offset-top="160" style="margin:auto;">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#top" style="font-size: 30px;"><b>Movie</b></a>
+                    <a class="navbar-brand" href="#top" style="font-size: 30px;"><b>Flight Search</b></a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href = "booking.jsp">Bookings</a>
                     <li><a href = "review.jsp">Reviews</a>
-                    <li class="active"><a href="#top">Main Admin Page</a></li>
+                    <li class="active"><a href="#top">Serach Page</a></li>
                     <li><a href="updateanddelete.jsp">Update&sol;Delete</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -69,7 +67,7 @@
         <section id="section1" class="container-fluid">
             <legend><h1 style="text-align: center;">Advanced search</h1></legend>
 
-            <form action="SearchMovie" method="post">
+            <form action="FlightSearch" method="post">
                     <div class="form-group">
                         <label for="searchType">Search by: <input type="hidden" class="form-control add" required></label>
                             <select name="searchType">
@@ -80,7 +78,7 @@
                         <input type = "submit" value = "Search">
                     </div>
                     <div class="form-group">
-                    <label for="query">Search term <input type="text" class="form-control add" name="search" placeholder="search" /></label>
+                    <label for="query">Search<input type="text" class="form-control add" name="search" placeholder="search" /></label>
                     </div>
                 </form>
 

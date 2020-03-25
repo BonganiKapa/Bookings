@@ -47,7 +47,7 @@
         <div class="nav-wrapper">
             <nav id="site-navigation" class="container-fluid navbar navbar-inverse" data-spy="affix" data-offset-top="160" style="margin:auto;">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#top" style="font-size: 30px;"><b>FLights</b></a>
+                    <a class="navbar-brand" href="#top" style="font-size: 30px;"><b>Flights</b></a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href = "booking.jsp">Bookings</a>
