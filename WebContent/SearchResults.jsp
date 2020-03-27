@@ -1,4 +1,5 @@
-<%@ include file = "Home.jsp" %>
+<%@page import="airline.bookings.controller.SearchFlight"%>
+<%@page import="java.util.*" %> 
 
 <!DOCTYPE HTML>
 <html>
@@ -43,16 +44,16 @@
         <%
         // Show username on page
         %>
-        <%@ include file = "Home.jsp" %>
+       
         <div class="nav-wrapper">
             <nav id="site-navigation" class="container-fluid navbar navbar-inverse" data-spy="affix" data-offset-top="160" style="margin:auto;">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#top" style="font-size: 30px;"><b>Flights</b></a>
+                    <a class="navbar-brand" href="#top" style="font-size: 30px;"><b>Flights Results</b></a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href = "booking.jsp">Bookings</a>
                     <li><a href = "review.jsp">Reviews</a>
-                    <li class="active"><a href="#top">Main Admin Page</a></li>
+                    <li class="active"><a href="#top">Search Results Page</a></li>
                     <li><a href="updateanddelete.jsp">Update&sol;Delete</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -60,74 +61,70 @@
             </nav>
         </div>
         <div class = "section1">
-        <table align="center">
+        <table width = "700px" align="center" style = "boder:1px solid #000000">
+        <tr>
+        	<td colspan = 4 align = "center" 
+        		style = "background-color:teal">
+        		<b>Rusults</b></td>
+        </tr>
+        <tr style = "background-color: lightgrey;">
+        	<td><b>Airport Name:</b></td>
+        	<td><b>Flight Time:</b></td>
+        	<td><b>Destination:</b></td>
+        	<td><b>Arrival Time:</b></td>
+        	<td><b>Duration Time:</b></td>
+        </tr>
         <%
-            List flightlist = new ArrayList();
-            movielist = (ArrayList)request.getAttribute("flightlist");
-            if(flightlist != null && flightlist.size() > 0) {
-
-        %>
-        <h2 align="center">Result</h2>
+			int count = 0;
+        	String color = "#F9EBB3";
+        if(request.getAttribute("flightList") != null){
+        	ArrayList flight = (ArrayList)request.getAttribute("flightList");
+        	Iterator ite = flight.iterator();
+        	
+        	while(ite.hasNext()){
+        		if ((count % 2) == 0){
+        			color = "#effee";
+        		}
+        		else{
+        			color = "#F9EBB3";
+        		}
+        		count++;
+        		
+        		ArrayList flightList = (ArrayList)ite.next();
+        		%>
+        		<h2 align="center">Result</h2>
 
         <tr>
 
-            <th>Client Name:</th>
+           <tr>
 
-            <th>Flight Name:</th>
+        <td><%=flightList.get(1) %></td>
 
-            <th>Flight Duration:</th>
+        <td><%=flightList.get(2) %></td>
 
-            <th>Flight Number:</th>
+        <td><%=flightList.get(3) %></td>
 
-            <th>Flight Date:</th>
+        <td><%=flightList.get(4) %></td>
 
-            <th>Departure:</th>
-
-            <th>Arrival:</th>
+        <td><%=flightList.get(5) %></td>
 
         </tr>
 
-        <%
-
-        for(int i=0;i<flightlist.size();i++){
-
-        List flight=(List)flightlist.get(i);
-
+        </tr>
+       <%  		
+        	}
+        }
         %>
-
-        <tr>
-
-        <td><%=flight.get(1) %></td>
-
-        <td><%=flight.get(2) %></td>
-
-        <td><%=flight.get(3) %></td>
-
-        <td><%=flight.get(4) %></td>
-
-        <td><%=flight.get(5) %></td>
-
-        <td><%=flight.get(6) %></td>
-
-        <td><%=flight.get(7) %></td>
-
-        </tr>
-
+        
         <%
-
-            }
-
-        }else{
-
-        %>
-        <tr>
-
-            <td> No records found </td>
-
-        </tr>
-
-        <%}%>
-
+			if(count == 0){
+				%>
+				<tr>
+				<td colspan = 8 align = "center"
+				style= "background-color:eeffee"><b>NO RECORD</b></td>
+				</tr>
+				<% } 
+				%>				
         </table>
         </div>
     </body>

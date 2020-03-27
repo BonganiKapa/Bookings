@@ -111,7 +111,7 @@ font-size: 16px;"> Welcome Guest &nbsp; </div>
                  <hr />
                  
                  
-                 <form action="/AirlineReservationSystem/ActionServlet" method="post" onsubmit="return checkMe();">
+                 <form action="/" method="post" onsubmit="return checkMe();">
                  <input type="hidden" name="type" value="flightdetails">
                 <div class="row">
                     <div class="col-md-12">
