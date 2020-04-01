@@ -26,8 +26,8 @@ public class Bookings extends HttpServlet {
 		PrintWriter prnt = response.getWriter();
 		String dprtur = request.getParameter("departure");
 		String[] dpt = dprtur.split("-");
-		String pdtr = dpt[1];
-		request.setAttribute("from", pdtr);
+		String dptr = dpt[1];
+		request.setAttribute("from", dptr);
 		String arrvl = request.getParameter("arrival");
 		String[] dest = arrvl.split("-");
 		String destnt = dest[1];
@@ -51,6 +51,12 @@ public class Bookings extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinebooking?useTimezone=true&serverTimezone=UTC", "root", "");
 			
 			if(dow.equals("Sunday") || dow.equals("Tuesday") || dow.equals("Thursday") || dow.equals("Fridays")) {
+				if((dptr.equals("") && destnt.equals("")) || (dptr.equals("") && destnt.equals("")) || (dptr.equals("") && destnt.equals(""))) {
+					String noFlight = "NO FLIGHT AVAILABLE ON ";
+					
+					request.setAttribute("noFlight", noFlight);
+					
+				}
 				
 			}
 		}
