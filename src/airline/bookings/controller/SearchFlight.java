@@ -43,8 +43,9 @@ public class SearchFlight extends HttpServlet {
 					"WHERE departure_time '" + search + "'; " ;
 		}
 		else if(searchType.equals("airport")) {
-			sqlStr = "SELECT * FROM airportdetails " +
-					"WHERE name '" + search + "';";
+			sqlStr = "SELECT airportdeatils.name, flightdetails.flight_name " + 
+					"FROM airportdetails a JOIN prices p ON a.airport_id = p.id_price " +  
+					"JOIN flightdetails f ON p.id_price = f.flight_id WHERE '" + search + "';";
 		}
 		else if(searchType.equals("flightName")) {
 			sqlStr = "SELECT * FROM flightdetails " +
