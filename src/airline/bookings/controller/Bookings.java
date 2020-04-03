@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,6 +54,7 @@ public class Bookings extends HttpServlet {
 			//getting airports from airports table & flight details from flightdetails table.
 			String sql = "SELECT airportdeatils.name, flightdetails.flight_name, FROM airportdetails a JOIN prices p ON a.airport_id = p.id_price JOIN flightdetails f ON p.id_price = f.flight_id WHERE ";
 			
+			int rs;
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinebooking?useTimezone=true&serverTimezone=UTC", "root", "");
@@ -72,10 +74,16 @@ public class Bookings extends HttpServlet {
 					
 					PreparedStatement ps2 = con.prepareStatement(sql);
 					
+					ps2.setString(1, "");
+					ps2.setString(2, "");
 					
+					rs = ps2.executeUpdate();
+					
+					//while(rs.next()) {
+						
+						
+					//}
 				}
-				
-				
 			}
 		}
 		catch(Exception e) {

@@ -85,7 +85,7 @@ font-size: 16px;"> Welcome Guest &nbsp; </div>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="Assets/imgs/airplane2.jpg" alt="" />
+                            <img src="Assets/imgs/Airplane2.jpg" alt="" />
                             <div class="carousel-caption ">
                                 <h4 class="back-light"></h4>
                             </div>
