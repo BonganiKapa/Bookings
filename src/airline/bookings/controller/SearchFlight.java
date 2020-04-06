@@ -86,7 +86,7 @@ public class SearchFlight extends HttpServlet {
 		catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		request.setAttribute("flightLight", flightList);
+		request.setAttribute("flightListt", flightList);
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/SearchResults.jsp");
 		rd.forward(request, response);
 	}
