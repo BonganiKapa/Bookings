@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import airline.bookings.dao.SeatSearchDAO;
+import airline.bookings.dao.BookingDAO;
 
 @WebServlet("/SeatSearch")
 public class SeatSearch extends HttpServlet {
@@ -25,7 +25,7 @@ public class SeatSearch extends HttpServlet {
 
 		fNum = request.getParameter("inputFlightCode");
 		date = request.getParameter("inputFlightDate");
-		SeatSearchDAO seat = new SeatSearchDAO();
+		BookingDAO seat = new BookingDAO();
 		ResultSet rs = seat.searchSeat(fNum, date);
 		try {
 			if(rs.next()) {

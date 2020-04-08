@@ -7,7 +7,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -18,77 +20,48 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/FlightSearch")
+import airline.bookings.dao.BookingDAO;
+
+@WebServlet("/FlightSearchDate")
 public class SearchFlight extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession(true);
+	String dpt_code = null;
+	String arr_code =null;
+	String date = null;
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List flightList = new ArrayList();
+		dpt_code = request.getParameter("");
+		arr_code = request.getParameter("");
+		date = request.getParameter("date");
 		
-		String searchType = "";
-		String search = "";
+		String leg_value = null;
+		String leg[] = request.getParameterValues("leg");
 		
-		String sqlStr = null;
-		
-		searchType = request.getParameter("searchType");
-		search = request.getParameter("search");
-		
-		if(searchType.equals("date")) {
-			sqlStr = "SELECT * FROM flightdetails " +
-					"WHERE departure_time '" + search + "'; " ;
+		if(leg.length > 1) {
+			leg_value = "both";
 		}
-		else if(searchType.equals("airport")) {
-			sqlStr = "SELECT airportdeatils.name, flightdetails.flight_name " + 
-					"FROM airportdetails a JOIN prices p ON a.airport_id = p.id_price " +  
-					"JOIN flightdetails f ON p.id_price = f.flight_id WHERE '" + search + "';";
+		
+		else if(leg[0].equals("0")) {
+			leg_value = "zero";
 		}
-		else if(searchType.equals("flightName")) {
-			sqlStr = "SELECT * FROM flightdetails " +
-					"WHERE flight_name LIKE '%" + search + "'% " + ";";
+		else if(leg[0].equals("1")) {
+			leg_value = "one";
 		}
-		else {
-			System.out.println("NO OPTION SELECTED FROM THE DROP DOWN OPTIONS!!!");
-			System.out.println("PLEASE SELECT OPTIONS FROM THE DROP DOWN TAB AND CARRY ON WITH THE ADVANCED SEARCH...");
-		}
-		System.out.println(sqlStr); 
+		
+		BookingDAO b = new BookingDAO();
+		
+		LinkedHashMap<String, ArrayList<ArrayList<String>>> rs;
 		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinebooking?useTimezone=true&serverTimezone=UTC", "root", "");
+			rs = b.dateFlightSearch(dpt_code, arr_code, leg_value, date);
 			
-			try {
-				PreparedStatement ps = con.prepareStatement(sqlStr);
-				ResultSet rs = ps.executeQuery();
-				
-				while(rs.next()) {
-					
-					List flight = new ArrayList();
-					
-					flight.add(rs.getString(1));
-					flight.add(rs.getString(2));
-					flight.add(rs.getString(4));
-					flight.add(rs.getString(4));
-					flight.add(rs.getString(5));
-					
-					flightList.add(flight);
-					
-				}
-			}
-			catch(SQLException e) {
-				System.out.println();
-			}
 		}
-		catch(Exception ex) {
-			ex.printStackTrace();
+		catch(ParseException  p) {
+			p.printStackTrace();
 		}
-		request.setAttribute("flightListt", flightList);
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/SearchResults.jsp");
-		rd.forward(request, response);
 	}
 }
 	
