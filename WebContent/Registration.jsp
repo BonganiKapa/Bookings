@@ -40,6 +40,7 @@
         </script>
     </head>
 <body>
+<jsp:include page="Home.jsp" />
 <div class="nav-wrapper">
             <nav id="site-navigation" class="container-fluid navbar navbar-inverse" data-spy="affix" data-offset-top="160" style="margin:auto;">
                 <div class="navbar-header">

@@ -48,6 +48,7 @@
                     <li><a href = "FlightSearch.jsp">Bookings</a>
                     <li><a href = "Login.jsp">Login</a>
                     <li><a href = "Registration.jsp">Register</a>
+                    <li><a href = "SearchResults.jsp">Flight Search</a>
                     <li><a href = "review.jsp">Reviews</a>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
