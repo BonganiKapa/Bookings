@@ -38,7 +38,11 @@
         </script>
     </head>
 <body>
-
+<style>
+body{<div style="background-image: url('Assets/imgs/backgroundImg.jpg');">
+	background-repeat: no-repeat;}
+</style>
+	
     <div class="nav-wrapper">
             <nav id="site-navigation" class="container-fluid navbar navbar-inverse" data-spy="affix" data-offset-top="160" style="margin:auto;">
                 <div class="navbar-header">
@@ -74,19 +78,25 @@ font-size: 16px;"> Welcome Guest &nbsp; </div>
                     <div class="carousel-inner">
                         <div class="item active">
 
-                            <img src="Assets/imgs/airplane.jpg" alt="" />
+                            <img src="Assets/imgs/airplane.jpg" alt="Busines Class" width="1000" height="300" />
                             <div class="carousel-caption" >
                                 <h4 class="back-light"></h4>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="Assets/imgs/airplane1.jpg" alt="" />
+                            <img src="Assets/imgs/airplane1.jpg" alt="Fly Star Airwaves"width="1000" height="300"/> <!-- width="800" height="500" -->
                             <div class="carousel-caption ">
                                 <h4 class="back-light"></h4>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="Assets/imgs/Airplane2.jpg" alt="" />
+                            <img src="Assets/imgs/Airplane2.jpg" alt="Air Bus before boarding" width="1000" height="300" />
+                            <div class="carousel-caption ">
+                                <h4 class="back-light"></h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Assets/imgs/backgroundImg.jpg" alt="Flight Take Off" width="1000" height="300" />
                             <div class="carousel-caption ">
                                 <h4 class="back-light"></h4>
                             </div>
@@ -97,6 +107,7 @@ font-size: 16px;"> Welcome Guest &nbsp; </div>
                         <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-example" data-slide-to="1"></li>
                         <li data-target="#carousel-example" data-slide-to="2"></li>
+                        <li data-target="#carousel-example" data-slide-to="3"></li>
                     </ol>
                 </div>
            

@@ -41,6 +41,7 @@
         </script>
     </head>
 <body>
+<jsp:include page="Home.jsp" />
 <div align="center">
 	<div class="menuHead col-md-offset-3">Check Available Seat(s)</div>
 
