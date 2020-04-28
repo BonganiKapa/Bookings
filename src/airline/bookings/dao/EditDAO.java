@@ -11,7 +11,7 @@ public class EditDAO {
 
 	public int updateClient(EditBean edit) throws ClassNotFoundException{
 		
-		String sql = "UPDATE personaldetails set name = ?, surname = ?, phone = ?, cell = ?, email = ?, address = ?, password=?, repassword = ? WHERE id_number = ?;";
+		String sql = "UPDATE personaldetails SET name = ?, surname = ?, phone = ?, cell = ?, email = ?, address = ?, password=?, repassword = ? WHERE id_number = ?;";
 		
 		int results = 0;
 		
@@ -31,9 +31,9 @@ public class EditDAO {
 			ps.setString(8, edit.getPassword());
 			ps.setString(9, edit.getRepassowrd());
 			
-			int i = ps.executeUpdate();
+			results = ps.executeUpdate();
 			
-			if(i != 0) {
+			if(results != 0) {
 				System.out.println("<br> Your Personal Details Where Successfully Updated");
 			}
 			
