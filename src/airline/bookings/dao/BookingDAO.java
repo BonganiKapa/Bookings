@@ -55,6 +55,27 @@ public class BookingDAO {
 	return rs;
 	}
 	
+	public ResultSet payFlight(String dpt_arpt, String arr_arprt) {
+		
+		String sql = "SELECT DISTINCT f.flight_number, date, f.departure_airport_code, i.departure_time, f.arrival_airport_code, i.arrival_time, f.airline, f.weekdays " 
+				+ "FROM flight f,flight_instance i "  
+				+ "WHERE f.flight_number = i.flight_number AND f.departure_airport_code='"  
+				+ dpt_arpt
+				+ "' AND f.arrival_airport_code = '" 
+				+ arr_arprt + "'";
+		ResultSet rs = null;
+		try {
+			ps = con.prepareStatement(sql);
+			
+			rs = ps.executeQuery();
+					
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			
+		}
+		return rs;
+	}
 	
 	public LinkedHashMap<String, ArrayList<ArrayList<String>>> dateFlightSearch(String dpt_code, String arr_code, String leg, String date) throws ParseException{
 		

@@ -7,7 +7,7 @@
 <body> 
 <jsp:include page="Home.jsp" /> 
 <h1>Edit Form</h1>  
-<form action="<%= request.getContextPath() %>/EditDetails" method="post">>  
+<form action="<%= request.getContextPath() %>/EditDetails" method="get">>  
 <input type="hidden" name="id" value=""/>  
 <table>  
 <tr><td>Name:</td><td>  
