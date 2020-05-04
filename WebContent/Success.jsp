@@ -7,6 +7,7 @@
 <title>Successful Registration</title>
 </head>
 <body>
+<jsp:include page="Home.jsp" />
 <h1>YOU ARE SUCCESSFULLY REGISTERED...</h1>
 <h1>WELL COME TO eSTAR BOOKING SERVICES</h1>
 </body>
